@@ -1,5 +1,5 @@
 import express from 'express'
-import playwright from 'playwright'
+import playwright from 'playwright-core'
 
 const router = express.Router()
 

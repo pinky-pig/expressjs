@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "cross-env API_URL=https://dev.mmeme.me/ tsc",
+    "build": "npx playwright install && cross-env API_URL=https://dev.mmeme.me/ tsc",
     "start": "cross-env API_URL=https://dev.mmeme.me/ node dist/index.js"
   },
   "dependencies": {
@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "playwright": "^1.34.0"
+    "playwright-core": "^1.34.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
