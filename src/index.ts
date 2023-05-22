@@ -6,7 +6,7 @@ import { app } from './api'
 if (process.env.NODE_ENV !== 'production')
   config()
 
-const port = process.env.PORT || 3333
+const port = process.env.PORT || 3200
 
 app.listen(port, () =>
   // eslint-disable-next-line no-console

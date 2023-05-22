@@ -1,5 +1,8 @@
+import path from 'node:path'
 import express from 'express'
 import cors from 'cors'
+import previewSiteRoute from './previewSite'
+import helloRoute from './hello'
 
 export const app = express()
 
@@ -9,16 +12,12 @@ app.use(express.json())
 app.use(express.raw({ type: 'application/vnd.custom-type' }))
 app.use(express.text({ type: 'text/html' }))
 
-// Healthcheck endpoint
 app.get('/', (req, res) => {
   res.status(200).send({ status: 'ok' })
 })
 
-const api = express.Router()
+app.use('/api/test', helloRoute)
 
-api.get('/hello', (req, res) => {
-  res.status(200).send({ message: 'hello world' })
-})
+app.use('/static', express.static(path.join(__dirname, '../../static/')))
 
-// Version the api
-app.use('/api/v1', api)
+app.use('/api/preview', previewSiteRoute)
