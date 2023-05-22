@@ -29,3 +29,7 @@ yarn-error.log*
 
 # out dir
 dist/
+
+# screenshots
+
+static/screenshots/

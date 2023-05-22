@@ -7,7 +7,10 @@ async function tackScreenshot(url) {
   if (!url) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ message: 'Page URL not defined' }),
+      body: JSON.stringify({
+        message: 'Page URL not defined',
+        path: `${process.env.API_URL}static/screenshots/previewSite.jpeg`,
+      }),
     }
   }
 
