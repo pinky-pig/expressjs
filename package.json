@@ -1,6 +1,7 @@
 {
   "name": "expressjs",
   "version": "1.0.0",
+  "packageManager": "pnpm@8.5.1",
   "author": "Matt Spear",
   "license": "MIT",
   "main": "index.js",
