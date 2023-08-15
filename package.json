@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "npx playwright install && cross-env API_URL=https://dev.mmeme.me/ tsc",
+    "build": "cross-env API_URL=https://dev.mmeme.me/ tsc",
     "start": "cross-env API_URL=https://dev.mmeme.me/ node dist/index.js"
   },
   "dependencies": {
