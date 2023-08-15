@@ -17,7 +17,10 @@ async function getDirectoryContents() {
       `${GITHUB_API_URL}/repos/${OWNER}/${REPO}/contents/${Path}`,
     )
 
-    return response.data
+    return {
+      status: response.status,
+      data: response.data,
+    }
   }
   catch (error) {
     console.error('Error fetching directory contents:', error)
