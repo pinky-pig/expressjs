@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 // 1. 静态文件路由
 app.use('/static', express.static(path.join(__dirname, '../../static/')))
 
-// 2. 测试接口
+// 2. 测试接口，完整路径 http://localhost:3200/api/test/hello
 app.use('/api/test', helloRoute)
 
 // 3. 预览站点接口
