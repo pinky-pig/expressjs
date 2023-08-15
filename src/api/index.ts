@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import previewSiteRoute from './previewSite'
 import helloRoute from './hello'
+import weeklyRoute from './weekly'
 
 export const app = express()
 
@@ -16,8 +17,14 @@ app.get('/', (req, res) => {
   res.status(200).send({ status: 'ok' })
 })
 
-app.use('/api/test', helloRoute)
-
+// 1. 静态文件路由
 app.use('/static', express.static(path.join(__dirname, '../../static/')))
 
+// 2. 测试接口
+app.use('/api/test', helloRoute)
+
+// 3. 预览站点接口
 app.use('/api/preview', previewSiteRoute)
+
+// 4. 周报接口
+app.use('/api/weekly', weeklyRoute)

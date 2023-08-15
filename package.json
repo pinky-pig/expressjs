@@ -10,6 +10,7 @@
     "start": "cross-env API_URL=https://dev.mmeme.me/ node dist/index.js"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "chrome-aws-lambda": "^10.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
