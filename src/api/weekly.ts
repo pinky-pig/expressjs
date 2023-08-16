@@ -35,7 +35,7 @@ router.get('/getWeeklyCatalog', async (req, res) => {
   res.send(directoryContents)
 })
 
-router.get('/getWeeklyFrontmatter', async (req, res) => {
+router.get('/getWeeklyContent', async (req, res) => {
   try {
     // 1. 读取文件内容
     const response = await axios.get(req.query.path)
