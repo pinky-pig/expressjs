@@ -46,7 +46,10 @@ router.get('/getWeeklyFrontmatter', async (req, res) => {
 
     res.send({
       status: response.status,
-      data: parsedContent.data,
+      data: {
+        frontmatter: parsedContent.data,
+        content: markdownContent,
+      },
     })
   }
   catch (error) {
