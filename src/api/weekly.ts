@@ -76,4 +76,5 @@ interface WeeklyItem {
     'html': string
   }
   'frontmatter'?: any
+  'content'?: string
 }
