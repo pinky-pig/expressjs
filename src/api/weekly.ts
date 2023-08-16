@@ -3,6 +3,8 @@ import express from 'express'
 const router = express.Router()
 const axios = require('axios')
 
+const matter = require('gray-matter')
+
 const GITHUB_API_URL = 'https://api.github.com'
 const OWNER = 'pinky-pig' // GitHub 用户名
 const REPO = 'Arvin' // 仓库名
@@ -19,7 +21,7 @@ async function getDirectoryContents() {
 
     return {
       status: response.status,
-      data: response.data,
+      data: response.data as WeeklyItem[],
     }
   }
   catch (error) {
@@ -33,4 +35,42 @@ router.get('/getWeeklyCatalog', async (req, res) => {
   res.send(directoryContents)
 })
 
+router.get('/getWeeklyFrontmatter', async (req, res) => {
+  try {
+    // 1. 读取文件内容
+    const response = await axios.get(req.query.path)
+    // 2. 解析文件内容
+    const markdownContent = response.data
+    // 3. 解析 frontmatter
+    const parsedContent = matter(markdownContent)
+
+    res.send({
+      status: response.status,
+      data: parsedContent.data,
+    })
+  }
+  catch (error) {
+    console.error('Error fetching weekly frontmatter:', error)
+    throw error
+  }
+})
+
 export default router
+
+interface WeeklyItem {
+  'name': string
+  'path': string
+  'sha': string
+  'size': number
+  'url': string
+  'html_url': string
+  'git_url': string
+  'download_url': string
+  'type': string
+  '_links': {
+    'self': string
+    'git': string
+    'html': string
+  }
+  'frontmatter'?: any
+}
