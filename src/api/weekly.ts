@@ -1,5 +1,6 @@
 import express from 'express'
 import MarkdownIt from 'markdown-it'
+import Shiki from 'markdown-it-shiki'
 
 const router = express.Router()
 const axios = require('axios')
@@ -66,6 +67,11 @@ router.get('/getWeeklyContent', async (req, res) => {
 router.get('/getHTMLFromMarkdown', async (req, res) => {
   const md = new MarkdownIt({
     html: true,
+  })
+  // 优化代码样式
+  md.use(Shiki, {
+    theme: 'nord',
+    highlightLines: true,
   })
 
   // 1. 读取文件内容
