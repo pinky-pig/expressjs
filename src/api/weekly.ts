@@ -68,8 +68,11 @@ router.get('/getHTMLFromMarkdown', async (req, res) => {
     html: true,
   })
 
-  if (req.query.content instanceof String) {
-    const result = md.render(req.query.content as string)
+  // 1. 读取文件内容
+  const response = await axios.get(req.query.path)
+
+  if (typeof response.data === 'string') {
+    const result = md.render(response.data as string)
     res.send({
       status: 200,
       data: result,
