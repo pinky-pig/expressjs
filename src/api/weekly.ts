@@ -1,8 +1,8 @@
 import express from 'express'
+import MarkdownIt from 'markdown-it'
 
 const router = express.Router()
 const axios = require('axios')
-
 const matter = require('gray-matter')
 
 const GITHUB_API_URL = 'https://api.github.com'
@@ -43,18 +43,43 @@ router.get('/getWeeklyContent', async (req, res) => {
     const markdownContent = response.data
     // 3. 解析 frontmatter
     const parsedContent = matter(markdownContent)
-
+    // 4. 移除 frontmatter 的内容
+    function removeFrontmatter(input) {
+      const regex = /---([\s\S]*?)---/g
+      return input.replace(regex, '')
+    }
     res.send({
       status: response.status,
       data: {
         frontmatter: parsedContent.data,
         content: markdownContent,
+        contentWithoutFrontmatter: removeFrontmatter(parsedContent.content),
       },
     })
   }
   catch (error) {
     console.error('Error fetching weekly frontmatter:', error)
     throw error
+  }
+})
+
+router.get('/getHTMLFromMarkdown', async (req, res) => {
+  const md = new MarkdownIt({
+    html: true,
+  })
+
+  if (req.query.content instanceof String) {
+    const result = md.render(req.query.content as string)
+    res.send({
+      status: 200,
+      data: result,
+    })
+  }
+  else {
+    res.send({
+      status: 200,
+      data: '暂无数据',
+    })
   }
 })
 
