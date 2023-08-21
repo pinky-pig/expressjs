@@ -4,6 +4,7 @@ import cors from 'cors'
 import previewSiteRoute from './previewSite'
 import helloRoute from './hello'
 import weeklyRoute from './weekly'
+import myDaysAndThings from './myDaysAndThings'
 
 export const app = express()
 
@@ -28,3 +29,6 @@ app.use('/api/preview', previewSiteRoute)
 
 // 4. 周报接口
 app.use('/api/weekly', weeklyRoute)
+
+// 5. 纪念日或事
+app.use('/api/myDaysThings', myDaysAndThings)
