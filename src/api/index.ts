@@ -1,10 +1,13 @@
 import path from 'node:path'
 import express from 'express'
 import cors from 'cors'
+import expressWs from 'express-ws'
 import previewSiteRoute from './previewSite'
 import helloRoute from './hello'
 import weeklyRoute from './weekly'
 import myDaysAndThings from './myDaysAndThings'
+
+import socketRouter from './ws'
 
 export const app = express()
 
@@ -32,3 +35,6 @@ app.use('/api/weekly', weeklyRoute)
 
 // 5. 纪念日或事
 app.use('/api/myDaysThings', myDaysAndThings)
+
+expressWs(app)
+app.use('/socket', socketRouter)
