@@ -95,20 +95,20 @@ router.get('/getHTMLFromMarkdown', async (req, res) => {
 export default router
 
 interface WeeklyItem {
-  'name': string
-  'path': string
-  'sha': string
-  'size': number
-  'url': string
-  'html_url': string
-  'git_url': string
-  'download_url': string
-  'type': string
-  '_links': {
-    'self': string
-    'git': string
-    'html': string
+  name: string
+  path: string
+  sha: string
+  size: number
+  url: string
+  html_url: string
+  git_url: string
+  download_url: string
+  type: string
+  _links: {
+    self: string
+    git: string
+    html: string
   }
-  'frontmatter'?: any
-  'content'?: string
+  frontmatter?: any
+  content?: string
 }
