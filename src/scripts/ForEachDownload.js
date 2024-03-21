@@ -1,3 +1,9 @@
+/**
+ * 步骤
+ * 1. 更换地址和名称
+ * 2. 运行命令 `node ForEachDownload.js`
+ */
+
 const fs = require('node:fs')
 const path = require('node:path')
 const axios = require('axios')
