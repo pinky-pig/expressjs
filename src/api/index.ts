@@ -6,6 +6,7 @@ import previewSiteRoute from './previewSite'
 import helloRoute from './hello'
 import weeklyRoute from './weekly'
 import myDaysAndThings from './myDaysAndThings'
+import downloadRoute from './download-country'
 
 import socketRouter from './ws'
 
@@ -35,6 +36,9 @@ app.use('/api/weekly', weeklyRoute)
 
 // 5. 纪念日或事
 app.use('/api/myDaysThings', myDaysAndThings)
+
+// 6. 下载国家数据
+app.use('/api/downloadCountry', downloadRoute)
 
 expressWs(app)
 app.use('/socket', socketRouter)

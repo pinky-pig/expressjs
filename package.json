@@ -37,6 +37,7 @@
     "eslint-plugin-import": "^2.29.1",
     "markdown-it-shiki": "^0.9.0",
     "nodemon": "^2.0.22",
+    "osmtogeojson": "3.0.0-beta.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
