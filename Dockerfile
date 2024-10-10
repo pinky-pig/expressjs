@@ -7,7 +7,8 @@ WORKDIR /app
 RUN corepack enable
 
 # 复制 package.json 和 pnpm-lock.yaml（如果有）
-COPY package.json pnpm-lock.yaml ./
+# COPY package.json pnpm-lock.yaml ./
+COPY package.json ./
 
 # 安装依赖
 RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
