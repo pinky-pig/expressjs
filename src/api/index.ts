@@ -7,6 +7,7 @@ import helloRoute from './hello'
 import weeklyRoute from './weekly'
 import myDaysAndThings from './myDaysAndThings'
 import downloadRoute from './download-country'
+import dingdingDaka from './dingding-daka'
 
 import socketRouter from './ws'
 
@@ -39,6 +40,9 @@ app.use('/api/myDaysThings', myDaysAndThings)
 
 // 6. 下载国家数据
 app.use('/api/downloadCountry', downloadRoute)
+
+// 7. 钉钉打卡
+app.use('/api/dingdingDaka', dingdingDaka)
 
 expressWs(app)
 app.use('/socket', socketRouter)
