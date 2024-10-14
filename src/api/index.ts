@@ -9,7 +9,8 @@ import myDaysAndThings from './myDaysAndThings'
 import downloadRoute from './download-country'
 import dingdingDaka from './dingding-daka'
 
-import socketRouter from './ws'
+import demoRoute from './ws/demo'
+import webRTCPtpRoute from './ws/webRTC-p2p'
 
 export const app = express()
 
@@ -44,5 +45,7 @@ app.use('/api/downloadCountry', downloadRoute)
 // 7. 钉钉打卡
 app.use('/api/dingdingDaka', dingdingDaka)
 
+// 8. 初始化ws
 expressWs(app)
-app.use('/socket', socketRouter)
+app.use('/webSocket', demoRoute)
+app.use('/webSocket', webRTCPtpRoute)

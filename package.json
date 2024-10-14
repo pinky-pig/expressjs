@@ -1,44 +1,46 @@
 {
   "name": "expressjs",
   "version": "1.0.0",
-  "packageManager": "pnpm@8.5.1",
   "author": "Matt Spear",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "up": "taze major -I"
   },
   "dependencies": {
-    "axios": "^1.6.7",
+    "axios": "^1.7.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.18.3",
+    "express": "^4.21.1",
     "express-ws": "^5.0.2",
+    "fs-extra": "^11.2.0",
     "gray-matter": "^4.0.3",
-    "markdown-it": "^13.0.2",
-    "playwright-core": "^1.42.1"
+    "markdown-it": "^14.1.0",
+    "playwright-core": "^1.48.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.8.0",
+    "@antfu/eslint-config": "^3.7.3",
     "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/markdown-it": "^13.0.7",
-    "@types/node": "^18.19.21",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@types/express": "^5.0.0",
+    "@types/markdown-it": "^13.0.9",
+    "@types/node": "^18.19.55",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
+    "eslint": "^9.12.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-cypress": "^2.15.1",
-    "eslint-plugin-format": "^0.0.1",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-cypress": "^4.0.0",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-import": "^2.31.0",
     "markdown-it-shiki": "^0.9.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.1.7",
     "osmtogeojson": "3.0.0-beta.5",
+    "taze": "^0.17.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.3"
   }
 }
