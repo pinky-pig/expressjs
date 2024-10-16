@@ -4,8 +4,6 @@ module.exports = antfu(
   {
     formatters: true,
     // TypeScript and Vue are auto-detected, you can also explicitly enable them:
-    typescript: true,
-    vue: true,
     // Disable jsonc and yaml support
     jsonc: false,
     yaml: false,
@@ -24,11 +22,6 @@ module.exports = antfu(
       overrides: {
       },
     },
-    yaml: {
-      overrides: {
-      },
-    },
-
   },
   // TS 文件
   {
