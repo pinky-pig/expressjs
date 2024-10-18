@@ -1,6 +1,6 @@
 import { determineValueType } from '../../utils/determine-value-type'
-
 const express = require('express')
+
 const expressWs = require('express-ws')
 
 const router = express.Router()
@@ -50,7 +50,7 @@ router.ws('/webRTC-p2p', (ws, _req) => {
           // {"type":"join", "code":"a1b2c3"}
           {
             const { code } = message
-            const aSocket = connections[code].a
+            const aSocket = connections[code]?.a
 
             if (aSocket) {
               connections[code] = {
